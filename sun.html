@@ -1,14 +1,17 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>SUN</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
 			* {
   				color: white;
   				
 			}
-			@media screen and (min-width: 950px) {
+			@media screen and (min-width: 951px) {
 			
 				body {
 					  background-color: black;
@@ -155,7 +158,6 @@
 					width:80%;
 					background-color:black;
 					border:5px solid white;
-					/*check this padding later*/
 					padding:10%;
 					padding-right:0;
 					margin:10px;
@@ -238,7 +240,7 @@ In sum, the Sun, our celestial benefactor, transcends its role as a radiant orb.
 
 Know more about SUN at <a href="https://en.wikipedia.org/wiki/Sun">Learn More</a>
 <br><br>
-Learn about other planets <a href="#">Back</a>
+Learn about other planets <a href="solarSystem.html">Back</a>
 	
 		</div>
 		
@@ -275,8 +277,8 @@ Learn about other planets <a href="#">Back</a>
 	   
 	  
 	  
-					var earth = new THREE.Mesh(geometry, material);
-					scene.add(earth);
+					var planet = new THREE.Mesh(geometry, material);
+					scene.add(planet);
 	   
 
 					var light = new THREE.DirectionalLight(0xffffff , 1);
@@ -295,9 +297,9 @@ Learn about other planets <a href="#">Back</a>
 				   y: 0
 				 };
 
-				 earthContainer = renderer.domElement;
+				 planetContainer = renderer.domElement;
 
-				 earthContainer.addEventListener('mousedown', function(event) {
+				 planetContainer.addEventListener('mousedown', function(event) {
 				   
 
 				   isDragging = true;
@@ -307,12 +309,12 @@ Learn about other planets <a href="#">Back</a>
 				   };
 				 });
 
-				 earthContainer.addEventListener('mouseup', function() {
+				 planetContainer.addEventListener('mouseup', function() {
 				   
 				   isDragging = false;
 				 });
 
-				 earthContainer.addEventListener('mousemove', function(event) {
+				 planetContainer.addEventListener('mousemove', function(event) {
 				   if (isDragging) {
 					 var deltaMove = {
 					   x: event.clientX - previousMousePosition.x,
@@ -328,7 +330,7 @@ Learn about other planets <a href="#">Back</a>
 					   )
 					 );
 
-					 earth.quaternion.multiplyQuaternions(rotationQuaternion, earth.quaternion);
+					 planet.quaternion.multiplyQuaternions(rotationQuaternion, planet.quaternion);
 					 previousMousePosition = {
 					   x: event.clientX,
 					   y: event.clientY
@@ -342,7 +344,7 @@ Learn about other planets <a href="#">Back</a>
 
 				 var animate = function() {
 				   requestAnimationFrame(animate);
-				   earth.rotation.y += 0.0025;
+				   planet.rotation.y += 0.0025;
 				   renderer.render(scene, camera);
 				 };
 
