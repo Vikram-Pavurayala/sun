@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+			* {
+  				color: white;
+  				
+			}
+			@media screen and (min-width: 950px) {
+			
+				body {
+					  background-color: black;
+					  overflow: hidden;
+					  font-family: 'Teko', sans-serif;
+					  margin: 0;
+					  padding: 0;
+					  height: 100vh;
+					  -webkit-user-select: none; /* Safari */
+					  -ms-user-select: none; /* IE 10 and IE 11 */
+					  user-select: none; /* Standard syntax */
+				}
+				
+				h1{
+					color: #ffffff;
+					font-size:50px;
+					margin:0;
+					padding-left:30px;
+					margin-bottom: 0px; 
+					padding-bottom: 0px;
+				}
+			
+				.about{
+				  background-color: rgba(255, 148, 112, 0.5);
+				  overflow: auto;
+				  height:65vh;
+				  font-size:30px;
+				  width:50%;
+				  border:2px solid orange;
+				  border-top:0px;
+				  border-bottom:0px;
+				  border-radius: 10px;
+				  margin-left: 40px;
+				  padding:10px;
+				}
+
+				.about::-webkit-scrollbar {
+				  width: 0;
+				  height: 1px;
+				  border-bottom: 5px solid grey;
+				}
+				
+				#planet-container{
+					position:absolute;
+					top:25%;
+					right:10%;
+				}
+				#caption{
+					display:none;
+				}
+				
+				/* Star animation */
+				
+				.starry-container {
+				    position: absolute;
+				    top: 0;
+				    left: 0;
+				    width: 100%;
+				    height: 100%;
+				    pointer-events: none;
+				    z-index:-1;
+				    position:fixed;
+				}
+
+				.star {
+				    position: absolute;
+				    width: 2px;
+				    height: 2px;
+				    background-color: #fff;
+				    border-radius: 50%;
+				    animation: twinkle 3s infinite;
+				}
+				
+				.footer {
+					position: fixed; /* Fix the footer to the viewport */
+					bottom: 0; /* Position it at the bottom of the viewport */
+					width: 100%; /* Make it span the full width of the viewport */
+					background-color: rgba(255, 148, 112, 0.1); /* Background color for the footer */
+					color: white; /* Text color for the footer */
+					padding: 20px;/* Add some padding for content inside the footer */
+					text-align:center;
+					font-size:20px;
+					overflow-anchor: none;
+    			}
+    			
+    			@keyframes twinkle {
+				    0%, 100% {
+				        opacity: 0;
+				        
+				    }
+				    50% {
+				        opacity: 1;
+				       
+				    }
+				}
+			}
+			
+			
+			
+			@media screen and (max-width: 950px) {
+			
+				body{
+					background-color:black;
+					font-family: 'Teko', sans-serif;
+					-webkit-user-select: none; /* Safari */
+					-ms-user-select: none; /* IE 10 and IE 11 */
+					user-select: none; /* Standard syntax */
+				}
+				h1{
+					color: #ffffff;
+					font-size:50px;
+					margin:0;
+					padding-left:30px;
+					margin-bottom: 0px; 
+					padding-bottom: 0px;
+				}
+			
+				.about{
+				  background-color: rgba(255, 148, 112, 0.5);
+				  overflow: auto;
+				  width:auto;
+    			  height:auto;
+    			  margin:10px;	
+				  font-size:30px;
+				  border:2px solid orange;
+				  border-top:0px;
+				  border-bottom:0px;
+				  border-radius: 10px;
+				 
+				  padding:10px;
+				}
+
+				.about::-webkit-scrollbar {
+				  width: 0;
+				  height: 1px;
+				  border-bottom: 5px solid grey;
+				}
+				
+				#planet-container{
+					display:flex;
+					align-items:center;
+					justify-content:center;
+					position:relative;
+					width:80%;
+					background-color:black;
+					border:5px solid white;
+					/*check this padding later*/
+					padding:10%;
+					padding-right:0;
+					margin:10px;
+				}
+				#caption{
+					display:block;
+					font-size:20px;
+					color:grey;
+					text-align:center;
+					margin-bottom:20px;
+				}
+				
+				/* Star animation */
+				
+				.starry-container {
+				    position: absolute;
+				    top: 0;
+				    left: 0;
+				    width: 100%;
+				    height: 100%;
+				    pointer-events: none;
+				    z-index:-1;
+				    position:fixed;
+				}
+
+				.star {
+				    position: absolute;
+				    width: 2px;
+				    height: 2px;
+				    background-color: #fff;
+				    border-radius: 50%;
+				    animation: twinkle 3s infinite;
+				}
+				
+				.footer {
+				  position:relative;
+				  width: auto; 
+				  background-color: rgba(255, 148, 112, 0.1); 
+				  color: white; 
+				  padding: 20px;
+				  text-align:center;
+				  font-size:20px;
+				  overflow-anchor: none;
+				}
+				
+				@keyframes twinkle {
+				    0%, 100% {
+				        opacity: 0;
+				        
+				    }
+				    50% {
+				        opacity: 1;
+				       
+				    }
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<h1>SUN</h1>
+		<div class="starry-container"></div>
+		
+		<div class ="about">
+		The Sun, the luminous heart of our solar system, has captivated human curiosity for eons. At its most fundamental level, the 
+			Sun is a G-type main-sequence star, primarily composed of hydrogen and helium, radiating light and heat across the cosmos. Spanning approximately 1.4 million kilometers in diameter, it reigns supreme at an average distance of 149.6 million kilometers from Earth.
+<br><br>
+<div id="planet-container"></div>
+<div id="caption"><i>Double click and move around to explore!</i></div>
+Deeper within its enigmatic depths, the Sun reveals a complex structure comprising the core, radiative zone, convective zone, photosphere, chromosphere, and corona. It's in the core that nuclear fusion transforms hydrogen into helium, unleashing a torrent of radiant energy, the source of life on our planet.
+<br><br>
+Delving further into its mysteries, we encounter the solar cycle, a mesmerizing 11-year pattern of fluctuating solar activity. Sunspots, transient dark blemishes on the Sun's surface, and the solar wind, a ceaseless torrent of charged particles, both contribute to the Sun's dynamic character. Occasionally, violent eruptions in the form of solar flares and coronal mass ejections remind us of its volatility, impacting Earth's space weather and technological infrastructure.
+<br><br>
+Yet, advanced inquiries into solar science unveil even more profound insights. Helioseismology, the study of solar oscillations, unveils the Sun's inner symphony as sound waves traverse its interior. Complex computer models simulate the Sun's inner workings, refining our comprehension and prediction of solar phenomena. As we master the art of space weather prediction, we safeguard our spacefaring endeavors, satellites, and terrestrial power grids from solar storms.
+<br><br>
+Observatories such as the Solar and Heliospheric Observatory (SOHO) and the Solar Dynamics Observatory (SDO) serve as our ever-watchful eyes, offering real-time glimpses into the Sun's surface and activities. And beyond scientific inquiry, the Sun holds the promise of an energy utopia—nuclear fusion, akin to its own energy generation, stands as a hopeful candidate for a sustainable and boundless energy source.
+<br><br>
+In sum, the Sun, our celestial benefactor, transcends its role as a radiant orb. It is a subject of enduring fascination, from its elemental essence and basic attributes to its intricate internal workings and far-reaching implications for our understanding of the universe. As we continue to gaze upon the Sun, its mysteries beckon us into the realms of both basic comprehension and advanced discovery.
+		
+<br><br>
+
+Know more about SUN at <a href="https://en.wikipedia.org/wiki/Sun">Learn More</a>
+<br><br>
+Learn about other planets <a href="solarSystem.html">Back</a>
+	
+		</div>
+		
+		<footer class="footer">UGC @ Student Gymkhana Center</footer>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+		<script>
+				 const starryContainer = document.querySelector(".starry-container");
+				 for (let i = 0; i < 500; i++) {
+				    const star = document.createElement("div");
+				    star.classList.add("star");
+				    star.style.left = `${Math.random() * 100}%`;
+				    star.style.top = `${Math.random() * 100}%`;
+				    star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+				    star.style.animationDelay = `${Math.random()}s`;
+				    starryContainer.appendChild(star);
+		   		}
+		
+				function createScene() { 
+					var scene = new THREE.Scene();
+					var camera = new THREE.PerspectiveCamera(75, 1366/2 / 574, 0.1, 1000);
+			 		camera.position.set(1, 0, 15); // Adjust the camera position
+
+			 		var renderer = new THREE.WebGLRenderer({ alpha: true });
+			 		renderer.setSize(1366 / 4, 574 / 2); // Adjust the renderer size
+					document.getElementById('planet-container').appendChild(renderer.domElement);
+
+					var geometry = new THREE.SphereGeometry(9, 64, 64);
+					var material = new THREE.MeshPhongMaterial({
+					  map: new THREE.TextureLoader().load('assets/sun.jpg'),
+					  bumpMap: new THREE.TextureLoader().load('assets/sun.jpg'),
+					  bumpScale: 0.05,
+					});
+			  
+	   
+	  
+	  
+					var earth = new THREE.Mesh(geometry, material);
+					scene.add(earth);
+	   
+
+					var light = new THREE.DirectionalLight(0xffffff , 1);
+					light.position.set(1, 0, 15);
+					scene.add(light);
+
+
+	 
+
+
+
+
+				 var isDragging = false;
+				 var previousMousePosition = {
+				   x: 0,
+				   y: 0
+				 };
+
+				 earthContainer = renderer.domElement;
+
+				 earthContainer.addEventListener('mousedown', function(event) {
+				   
+
+				   isDragging = true;
+				   previousMousePosition = {
+					 x: event.clientX,
+					 y: event.clientY
+				   };
+				 });
+
+				 earthContainer.addEventListener('mouseup', function() {
+				   
+				   isDragging = false;
+				 });
+
+				 earthContainer.addEventListener('mousemove', function(event) {
+				   if (isDragging) {
+					 var deltaMove = {
+					   x: event.clientX - previousMousePosition.x,
+					   y: event.clientY - previousMousePosition.y
+					 };
+
+					 var rotationQuaternion = new THREE.Quaternion().setFromEuler(
+					   new THREE.Euler(
+						 toRadians(deltaMove.y * 0.5),
+						 toRadians(deltaMove.x * 1),
+						 0,
+						 'XYZ'
+					   )
+					 );
+
+					 earth.quaternion.multiplyQuaternions(rotationQuaternion, earth.quaternion);
+					 previousMousePosition = {
+					   x: event.clientX,
+					   y: event.clientY
+					 };
+				   }
+				 });
+
+				 function toRadians(degrees) {
+				   return degrees * (Math.PI / 180);
+				 }
+
+				 var animate = function() {
+				   requestAnimationFrame(animate);
+				   earth.rotation.y += 0.0025;
+				   renderer.render(scene, camera);
+				 };
+
+				 animate();
+ 		}
+ 		createScene();
+		</script>
+	</body>
+</html>
